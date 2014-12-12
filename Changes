@@ -1,0 +1,30 @@
+Revision history for Dist-Zilla-Plugin-GenShellCompletion
+
+0.04    2014-12-13 (PERLANCAR)
+
+	- Rename module/dist from DZP-Rinci-InstallCompletion to
+          DZP-GenShellCompletion because this plugin is actually not
+          Rinci-specific.
+
+        - Replace the use of bash-completion-prog with shcompgen (which supports
+          multiple shells and make it possible to activate completion in the
+          current shell instead of waiting to start a new shell).
+
+
+0.03    2014-11-13 (PERLANCAR)
+
+	- Increase perl minver to 5.10.1 [CT].
+
+
+0.02    2014-11-09 (PERLANCAR)
+
+	- Skip adding code to Makefile.PL if there are no scripts/execfiles
+	  in the dist.
+
+	- Revise doc (mention Getopt::Long::Complete,
+	  DZP::GenBashCompletion::GetoptLong).
+
+
+0.01     2014-11-08 (PERLANCAR)
+
+         - First release.
