@@ -1,7 +1,7 @@
 package Dist::Zilla::Plugin::GenShellCompletion;
 
 our $DATE = '2014-12-13'; # DATE
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 use 5.010001;
 use strict;
@@ -56,7 +56,7 @@ GEN_SHELL_COMPLETION:
         or die "Can't find pattern in Makefile (2)";
 
     $content .= qq|\ncomp_install :\n\t| .
-        q|$(PERLRUN) -E'if(eval { require App::shcompgen; 1 }) { system "shcompgen", "--verbose", "generate", @ARGV }' -- $(EXE_FILES)| .
+        q|$(PERLRUN) -E'if(eval { require App::shcompgen; 1 }) { system "shcompgen", "--verbose", "generate", "--replace", @ARGV }' -- $(EXE_FILES)| .
         qq|\n\n|;
 
     $content .= qq|\ncomp_uninstall :\n\t| .
@@ -89,7 +89,7 @@ Dist::Zilla::Plugin::GenShellCompletion - Generate shell completion scripts when
 
 =head1 VERSION
 
-This document describes version 0.04 of Dist::Zilla::Plugin::GenShellCompletion (from Perl distribution Dist-Zilla-Plugin-GenShellCompletion), released on 2014-12-13.
+This document describes version 0.05 of Dist::Zilla::Plugin::GenShellCompletion (from Perl distribution Dist-Zilla-Plugin-GenShellCompletion), released on 2014-12-13.
 
 =head1 SYNOPSIS
 

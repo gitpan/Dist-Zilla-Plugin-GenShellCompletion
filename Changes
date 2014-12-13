@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-Plugin-GenShellCompletion
 
+0.05    2014-12-13 (PERLANCAR)
+
+	- Forgot to add --replace option to shcompgen during install phase.
+
+
 0.04    2014-12-13 (PERLANCAR)
 
 	- Rename module/dist from DZP-Rinci-InstallCompletion to
