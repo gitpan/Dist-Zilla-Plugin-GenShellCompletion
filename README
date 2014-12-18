@@ -3,7 +3,7 @@ NAME
     scripts when distribution is installed
 
 VERSION
-    This document describes version 0.06 of
+    This document describes version 0.07 of
     Dist::Zilla::Plugin::GenShellCompletion (from Perl distribution
     Dist-Zilla-Plugin-GenShellCompletion), released on 2014-12-18.
 

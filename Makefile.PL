@@ -12,11 +12,9 @@ use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Generate shell completion scripts when distribution is installed",
   "AUTHOR" => "perlancar <perlancar\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Perl::osnames" => "0.09"
-  },
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => 0
+    "ExtUtils::MakeMaker" => 0,
+    "Perl::osnames" => "0.09"
   },
   "DISTNAME" => "Dist-Zilla-Plugin-GenShellCompletion",
   "EXE_FILES" => [],
@@ -32,7 +30,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.06",
+  "VERSION" => "0.07",
   "test" => {
     "TESTS" => "t/*.t"
   }

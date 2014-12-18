@@ -1,7 +1,7 @@
 package Dist::Zilla::Plugin::GenShellCompletion;
 
 our $DATE = '2014-12-18'; # DATE
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
 use 5.010001;
 use strict;
@@ -24,7 +24,7 @@ with (
 sub before_build {
     my $self = shift;
 
-  $self->zilla->register_prereqs({phase => 'build'}, 'Perl::osnames' => '0.09');
+    $self->zilla->register_prereqs({phase => 'configure'}, 'Perl::osnames' => '0.09');
 }
 
 sub setup_installer {
@@ -99,7 +99,7 @@ Dist::Zilla::Plugin::GenShellCompletion - Generate shell completion scripts when
 
 =head1 VERSION
 
-This document describes version 0.06 of Dist::Zilla::Plugin::GenShellCompletion (from Perl distribution Dist-Zilla-Plugin-GenShellCompletion), released on 2014-12-18.
+This document describes version 0.07 of Dist::Zilla::Plugin::GenShellCompletion (from Perl distribution Dist-Zilla-Plugin-GenShellCompletion), released on 2014-12-18.
 
 =head1 SYNOPSIS
 
