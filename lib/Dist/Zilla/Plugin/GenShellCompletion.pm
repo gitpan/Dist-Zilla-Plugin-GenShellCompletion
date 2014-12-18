@@ -1,7 +1,7 @@
 package Dist::Zilla::Plugin::GenShellCompletion;
 
-our $DATE = '2014-12-13'; # DATE
-our $VERSION = '0.05'; # VERSION
+our $DATE = '2014-12-18'; # DATE
+our $VERSION = '0.06'; # VERSION
 
 use 5.010001;
 use strict;
@@ -14,11 +14,18 @@ use namespace::autoclean;
 use List::Util qw(first);
 
 with (
+    'Dist::Zilla::Role::BeforeBuild',
     'Dist::Zilla::Role::InstallTool',
     'Dist::Zilla::Role::FileFinderUser' => {
         default_finders => [':ExecFiles'],
     },
 );
+
+sub before_build {
+    my $self = shift;
+
+  $self->zilla->register_prereqs({phase => 'build'}, 'Perl::osnames' => '0.09');
+}
 
 sub setup_installer {
   my ($self) = @_;
@@ -45,6 +52,9 @@ sub setup_installer {
   my $body = <<'_';
 GEN_SHELL_COMPLETION:
 {
+    use Perl::osnames 0.09 qw(is_posix);
+    last unless is_posix();
+
     print "Modifying Makefile to generate shell completion on install\n";
     open my($fh), "<", "Makefile" or die "Can't open generated Makefile: $!";
     my $content = do { local $/; ~~<$fh> };
@@ -89,7 +99,7 @@ Dist::Zilla::Plugin::GenShellCompletion - Generate shell completion scripts when
 
 =head1 VERSION
 
-This document describes version 0.05 of Dist::Zilla::Plugin::GenShellCompletion (from Perl distribution Dist-Zilla-Plugin-GenShellCompletion), released on 2014-12-13.
+This document describes version 0.06 of Dist::Zilla::Plugin::GenShellCompletion (from Perl distribution Dist-Zilla-Plugin-GenShellCompletion), released on 2014-12-18.
 
 =head1 SYNOPSIS
 
@@ -122,7 +132,7 @@ C<Makefile.PL>.
 
 Third, currently only MakeMaker is supported, L<Module::Build> is not.
 
-=for Pod::Coverage setup_installer
+=for Pod::Coverage setup_installer before_build
 
 =head1 SEE ALSO
 
@@ -140,7 +150,7 @@ Please visit the project's homepage at L<https://metacpan.org/release/Dist-Zilla
 
 =head1 SOURCE
 
-Source repository is at L<https://github.com/perlancar/perl-Dist-Zilla-Plugin-Rinci-InstallCompletion>.
+Source repository is at L<https://github.com/perlancar/perl-Dist-Zilla-Plugin-GenShellCompletion>.
 
 =head1 BUGS
 

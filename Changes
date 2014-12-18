@@ -1,5 +1,11 @@
 Revision history for Dist-Zilla-Plugin-GenShellCompletion
 
+0.06    2014-12-18 (PERLANCAR)
+
+	- Skip non-POSIX OS for now (ref:
+	  https://github.com/perlancar/perl-Complete-Util/pull/1).
+
+
 0.05    2014-12-13 (PERLANCAR)
 
 	- Forgot to add --replace option to shcompgen during install phase.
